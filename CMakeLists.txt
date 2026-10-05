@@ -24,6 +24,18 @@ set(ament_dependencies
 # add_executable(simple_sub_node src/print_pose.cpp)
 # ament_target_dependencies(simple_sub_node ${ament_dependencies} )
 
+add_executable(car_simulator_node src/car_simulator_node.cpp)
+ament_target_dependencies(car_simulator_node rclcpp std_msgs geometry_msgs)
+
+add_executable(speed_radar_node src/speed_radar_node.cpp)
+ament_target_dependencies(speed_radar_node rclcpp std_msgs geometry_msgs)
+
+install(TARGETS
+  car_simulator_node
+  speed_radar_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
 
