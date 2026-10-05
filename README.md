@@ -1,18 +1,18 @@
 # Sebességmérő és Traffipax (ROS 2 Kis beadandó)
 
-Ez a csomag a Széchenyi Egyetem "Autonóm járművek és robotok programozása" tárgy kis beadandó feladatához készült. A csomag két node-ot tartalmaz, amelyek egy jármű sebességét szimulálják és figyelik traffipaxként. C++ nyelven, ROS 2 Humble környezetben íródott.
+ A package két node-ot tartalmaz, amelyek egy jármű sebességét szimulálják és figyelik traffipaxként. C++ nyelven, ROS 2 Humble környezetben.
 
 ## Node-ok és Topic-ok
 
 * **`car_simulator_node`**: Véletlenszerű sebességértékeket (30-80 km/h között) generál és publikál.
-* **`speed_radar_node`**: Feliratkozik a szimulátor adataira. Ha a sebesség meghaladja a megengedett 50 km/h-t, `WARN` szintű logolással büntetést jelez, alatta `INFO` szintű logolással szabályos közlekedést ír ki.
+* **`speed_radar_node`**: Feliratkozik a szimulátor adataira. Ha a sebesség meghaladja a megengedett 50 km/h-t, a rendszer figyelmeztet.
 
 ### Rendszer architektúra (Mermaid)
 
 ```mermaid
 graph LR
     A[car_simulator_node] -- car_velocity <br> (geometry_msgs/Twist) --> B[speed_radar_node]
-
+```
 # `nag_hmc_kisbead` package
 ROS 2 C++ package.  [![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
 ## Packages and build
